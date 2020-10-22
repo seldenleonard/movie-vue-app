@@ -6,28 +6,34 @@
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>Title:</label> 
-        <input type="text" class="form-control" v-model="title">
+        <label>Title:</label>
+        <input type="text" class="form-control" v-model="title" />
       </div>
       <div class="form-group">
         <label>Year:</label>
-        <input type="number" class="form-control" v-model="year">
+        <input type="number" class="form-control" v-model="year" />
       </div>
       <div class="form-group">
         <label>Plot:</label>
-        <input type="text" class="form-control" v-model="plot">
+        <input type="text" class="form-control" v-model="plot" /> <br />
+        <small v-if="100 - plot.length > -1"
+          >{{ 100 - plot.length }} Characters Left Before Exceeding Limit
+        </small>
+        <small v-if="plot.length > 100" class="text-warning"
+          >You May Not Exceed 100 Characters. Please Reduce by
+          {{ 100 - plot.length }} Characters.</small
+        >
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
   </div>
 </template>
-
 
 <script>
 import axios from "axios";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       title: "",
       year: "",
@@ -36,7 +42,7 @@ export default {
     };
   },
   methods: {
-    createMovie: function () {
+    createMovie: function() {
       var params = {
         title: this.title,
         year: this.year,
