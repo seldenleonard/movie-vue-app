@@ -3,14 +3,18 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/signup">Signup</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/logout">Logout</router-link> |
+      <span v-if="isLoggedIn()">
+        <router-link to="/logout">Logout</router-link> |
+      </span>
+      <span v-else>
+        <router-link to="/signup">Signup</router-link> |
+        <router-link to="/login">Login</router-link> |
+      </span>
       <router-link to="/movies">Movies Index</router-link> |
       <router-link to="/movies/new">New Movie</router-link>
       <!-- <router-link to="`/movies/${movie.id}`">Movies Show</router-link> | -->
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -36,3 +40,19 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  data: function() {
+    return {};
+  },
+  methods: {
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
+    },
+    getUserId: function() {
+      return parseInt(localStorage.getItem("user_id"));
+    },
+  },
+};
+</script>
