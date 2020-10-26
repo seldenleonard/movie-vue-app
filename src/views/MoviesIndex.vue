@@ -18,6 +18,45 @@
       <p>Plot: {{ movie.plot }}</p>
       <router-link :to="`/movies/${movie.id}`">More Info</router-link>
     </div>
+
+    <div class="service-content" id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="left-text">
+              <h4>Movies Index</h4>
+              <div class="line-dec"></div>
+              <p>
+                Here is a list of all the movies stored in this web app!
+              </p>
+              <ul>
+                <li>- Praesent porta urna id eros</li>
+                <li>- Curabitur consectetur malesuada</li>
+                <li>- Nam pretium imperdiet enim</li>
+                <li>- Sed viverra arcu non nisi efficitur</li>
+              </ul>
+              <div class="primary-button">
+                <a href="#portfolio">Learn More About Us</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="service-item">
+                  <h4>Classic Modern Design</h4>
+                  <div class="line-dec"></div>
+                  <p>
+                    Sed lacinia ligula est, at venenatis ex iaculis quis. Morbi
+                    sollicitudin nulla eget odio pellentesque.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
